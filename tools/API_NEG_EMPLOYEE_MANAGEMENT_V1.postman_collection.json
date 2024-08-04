@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "6370ca1b-2ed9-468d-b6a9-fbf1501452fd",
+		"name": "API_NEG_EMPLOYEE_MANAGEMENT_V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7145846"
+	},
+	"item": [
+		{
+			"name": "Get Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/neg/v1/employee-management",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"neg",
+						"v1",
+						"employee-management"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/neg/v1/employee-management/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"neg",
+						"v1",
+						"employee-management",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Ricardo\",\r\n    \"fatherLastName\": \"Perez\",\r\n    \"motherLastName\": \"Mendoza\",\r\n    \"sex\": \"M\",\r\n    \"position\": \"DEVELOPER\",\r\n    \"salary\": 2700.0,\r\n    \"birthdate\": \"03-05-1995\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/neg/v1/employee-management",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"neg",
+						"v1",
+						"employee-management"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8081",
+			"type": "string"
+		}
+	]
+}
