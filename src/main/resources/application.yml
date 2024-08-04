@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: '@project.name@'
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        format_sql: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/db_demo
+    username: postgres
+    password: 123456
+
+application:
+  api:
+    path: '/api/neg/v1/employee-management'
+
+server:
+  port: 8081
+  error:
+    include-message: always
+
+logging:
+  level:
+    com.pe.relari.api_neg_employee_management_v1: TRACE
