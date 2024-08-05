@@ -2,8 +2,7 @@ package com.pe.relari.api_neg_employee_management_v1.service.impl
 
 import com.pe.relari.api_neg_employee_management_v1.dao.EmployeeDao
 import com.pe.relari.api_neg_employee_management_v1.model.domain.Employee
-import com.pe.relari.api_neg_employee_management_v1.util.GenderCategory
-import com.pe.relari.api_neg_employee_management_v1.util.JobTitleCategory
+import com.pe.relari.api_neg_employee_management_v1.util.Utils
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -11,7 +10,6 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
-import java.time.LocalDate
 
 class EmployeeServiceImplTest {
 
@@ -29,9 +27,7 @@ class EmployeeServiceImplTest {
     @Test
     fun findByEmployeeId() {
 
-        val employee = Employee(
-            1, "Perez","Mendoza","Ricardo",JobTitleCategory.DEVELOPER,GenderCategory.M,2500.0,true, LocalDate.now()
-        )
+        val employee: Employee = Utils.buildEmployee()
 
         Mockito.`when`(employeeDao.findByEmployeeId(Mockito.anyInt()))
             .thenReturn(employee)
@@ -43,9 +39,7 @@ class EmployeeServiceImplTest {
     @Test
     fun findAll() {
 
-        val employees = listOf(Employee(
-                1, "Perez","Mendoza","Ricardo",JobTitleCategory.DEVELOPER,GenderCategory.M,2500.0,true, LocalDate.now()
-        ))
+        val employees = listOf(Utils.buildEmployee())
 
         Mockito.`when`(employeeDao.findAll())
             .thenReturn(employees)
