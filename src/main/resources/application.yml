@@ -19,6 +19,9 @@ spring:
     password: 123456
 
 application:
+  info:
+    version: '@project.version@'
+    description: '@project.description@'
   api:
     path: '/api/neg/v1/employee-management'
 
@@ -26,6 +29,12 @@ server:
   port: 8081
   error:
     include-message: always
+
+springdoc:
+  api-docs:
+    path: '${application.api.path}/openapi'
+  swagger-ui:
+    path: '${application.api.path}/swagger-ui.html'
 
 logging:
   level:
