@@ -8,6 +8,7 @@ Api de negocio que se encarga de administrar a los empleados.
 * Spring Validation
 * Spring JPA
 * PostgreSQL
+* Swagger
 
 ### Contiene pruebas unitarias con:
 * JUnit
