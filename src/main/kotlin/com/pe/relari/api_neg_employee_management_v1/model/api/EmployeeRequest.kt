@@ -1,6 +1,5 @@
 package com.pe.relari.api_neg_employee_management_v1.model.api
 
-import com.pe.relari.api_neg_employee_management_v1.util.EMPTY
 import com.pe.relari.api_neg_employee_management_v1.util.REGEXP_DATE
 import com.pe.relari.api_neg_employee_management_v1.util.REGEXP_SEX
 import com.pe.relari.api_neg_employee_management_v1.util.REGEXP_JOBS
