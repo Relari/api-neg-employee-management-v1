@@ -7,9 +7,7 @@ import com.pe.relari.api_neg_employee_management_v1.util.Utility
 import com.pe.relari.api_neg_employee_management_v1.util.GenderCategory
 import com.pe.relari.api_neg_employee_management_v1.util.JobTitleCategory
 
-class EmployeeMapper {
-
-    companion object {
+object EmployeeMapper {
 
         fun mapEmployeeResponse(employee: Employee): EmployeeResponse = EmployeeResponse(
                 employee.idEmployee,
@@ -46,6 +44,5 @@ class EmployeeMapper {
                 true,
                 Utility.mapLocalDate(employeeRequest.birthdate)
         )
-    }
 
 }

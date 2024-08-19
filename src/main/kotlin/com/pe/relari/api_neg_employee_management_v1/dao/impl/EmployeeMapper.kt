@@ -4,9 +4,7 @@ import com.pe.relari.api_neg_employee_management_v1.model.domain.Employee
 import com.pe.relari.api_neg_employee_management_v1.model.entity.EmployeeEntity
 import java.time.LocalDateTime
 
-class EmployeeMapper {
-
-    companion object {
+object EmployeeMapper {
 
         fun mapEmployeeEntity(employee: Employee): EmployeeEntity = EmployeeEntity(
                 employee.idEmployee,
@@ -33,5 +31,4 @@ class EmployeeMapper {
                 employeeEntity.birthdate
         )
 
-    }
 }

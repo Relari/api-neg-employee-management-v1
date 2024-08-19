@@ -16,14 +16,14 @@ class EmployeeDaoImpl(private val employeeRepository: EmployeeRepository) : Empl
     val log: Logger = LoggerFactory.getLogger(EmployeeDaoImpl::class.java.name)
 
     override fun findAll(): List<Employee> = employeeRepository.findAll()
-            .map { EmployeeMapper.mapEmployee(it) }
+            .map { Employee(it) }
 
     override fun findByEmployeeId(employeeId: Int): Employee = employeeRepository.findById(employeeId)
-        .map { EmployeeMapper.mapEmployee(it) }
+        .map { Employee(it) }
         .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND, "Employee Not Found") }
 
     override fun save(employee: Employee) {
-        val employeeEntity: EmployeeEntity = EmployeeMapper.mapEmployeeEntity(employee)
+        val employeeEntity = EmployeeEntity(employee)
         employeeRepository.save(employeeEntity)
     }
 

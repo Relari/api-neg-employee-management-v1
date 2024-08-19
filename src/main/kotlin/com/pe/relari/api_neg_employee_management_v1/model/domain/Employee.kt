@@ -1,5 +1,6 @@
 package com.pe.relari.api_neg_employee_management_v1.model.domain
 
+import com.pe.relari.api_neg_employee_management_v1.model.entity.EmployeeEntity
 import com.pe.relari.api_neg_employee_management_v1.util.GenderCategory
 import com.pe.relari.api_neg_employee_management_v1.util.JobTitleCategory
 import java.time.LocalDate
@@ -16,16 +17,27 @@ data class Employee (
     val birthdate: LocalDate
 ) {
 
-    fun mutateEmployee(employee: Employee) = Employee(
-            this.idEmployee,
-            if(employee.fatherLastName.isNullOrBlank()) this.fatherLastName else employee.fatherLastName,
-            if(employee.motherLastName.isNullOrBlank()) this.motherLastName else employee.motherLastName,
-            if(employee.firstName.isNullOrBlank()) this.firstName else employee.firstName,
-            if(employee.jobTitle == null) this.jobTitle else employee.jobTitle,
-            if(employee.gender == null) this.gender else employee.gender,
-            if(employee.salary == null) this.salary else employee.salary,
-            this.isActive,
-            if(employee.birthdate == null) this.birthdate else employee.birthdate
+    constructor(employeeEntity: EmployeeEntity): this(
+        employeeEntity.id,
+        employeeEntity.fatherLastName,
+        employeeEntity.motherLastName,
+        employeeEntity.firstName,
+        employeeEntity.jobTitle,
+        employeeEntity.gender,
+        employeeEntity.salary,
+        employeeEntity.isActive,
+        employeeEntity.birthdate
+    )
+
+    fun mutateEmployee(employee: Employee) = this.copy(
+        fatherLastName = employee.fatherLastName.ifBlank { fatherLastName },
+        motherLastName = employee.motherLastName.ifBlank { motherLastName },
+        firstName = employee.firstName.ifBlank { firstName },
+        jobTitle = if (employee.jobTitle == jobTitle) jobTitle else employee.jobTitle,
+        gender = if (employee.gender == gender) gender else employee.gender,
+        salary = if (employee.salary == salary) salary else employee.salary,
+        isActive = if (isActive == employee.isActive) isActive else employee.isActive,
+        birthdate = if (birthdate == employee.birthdate) birthdate else employee.birthdate,
     )
 
 }
