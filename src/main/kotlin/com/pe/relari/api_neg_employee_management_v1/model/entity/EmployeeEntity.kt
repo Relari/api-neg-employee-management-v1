@@ -22,33 +22,33 @@ data class EmployeeEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int = 0,
 
-    @Column(name = "fatherLastName", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     val fatherLastName: String = String(),
 
-    @Column(name = "motherLastName", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     val motherLastName: String = String(),
 
-    @Column(name = "firstName", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     val firstName: String = String(),
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "jobTitle", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     val jobTitle: JobTitleCategory = JobTitleCategory.DEVELOPER,
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "gender", length = 1, nullable = false)
+    @Column(length = 1, nullable = false)
     val gender: GenderCategory = GenderCategory.M,
 
-    @Column(name = "salary", nullable = false)
+    @Column(nullable = false)
     val salary: Double = 0.0,
 
-    @Column(name = "isActive", nullable = false)
+    @Column(nullable = false)
     val isActive: Boolean = true,
 
-    @Column(name = "birthdate", nullable = false, columnDefinition = "DATE")
+    @Column(nullable = false, columnDefinition = "DATE")
     val birthdate: LocalDate = LocalDate.now(),
 
-    @Column(name = "creationDate", nullable = false, columnDefinition = "TIMESTAMP")
+    @Column(nullable = false, columnDefinition = "TIMESTAMP")
     val creationDate: LocalDateTime = LocalDateTime.now()
 ) {
     constructor(employee: Employee): this(
