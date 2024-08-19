@@ -33,9 +33,9 @@ data class Employee (
         fatherLastName = employee.fatherLastName.ifBlank { fatherLastName },
         motherLastName = employee.motherLastName.ifBlank { motherLastName },
         firstName = employee.firstName.ifBlank { firstName },
-        jobTitle = if (employee.jobTitle == jobTitle) jobTitle else employee.jobTitle,
-        gender = if (employee.gender == gender) gender else employee.gender,
-        salary = if (employee.salary == salary) salary else employee.salary,
+        jobTitle = if (jobTitle == employee.jobTitle) jobTitle else employee.jobTitle,
+        gender = if (gender == employee.gender) gender else employee.gender,
+        salary = if (salary == employee.salary) salary else employee.salary,
         isActive = if (isActive == employee.isActive) isActive else employee.isActive,
         birthdate = if (birthdate == employee.birthdate) birthdate else employee.birthdate,
     )
